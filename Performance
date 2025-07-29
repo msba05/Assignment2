@@ -1,5 +1,5 @@
-public class Performance {
-    public static String Performance(Student s){
+public class classifyPerformance {
+    public static String classifyPerformance(Student s){
         if (s.getGps() >= 3.5 && s.getCredits() >= 30){
             return "Honor Roll";
         }
