@@ -1,12 +1,14 @@
+
 import java.util.Scanner;
 
-public class Assignment2 {
+public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidStudentIDException, InvalidStudentNameException 
+    {
         StudentManager manager = new StudentManager(); //Problem
         Scanner scanner  = new Scanner(System.in);
         boolean running = true;
-        
+
         while(running){
             System.out.println("\n1. Add Undergraduate Student");
             System.out.println("2. Add Graduate Student");
@@ -17,92 +19,92 @@ public class Assignment2 {
             System.out.println("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); //consume the newline
-            
+
             switch(choice){
                 case 1:
                 case 2:
-                System.out.print("Enter ID: ");
-                String id = scanner.nextLine();
-                System.out.print("Enter Name: ");
-                String name = scanner.nextLine();
-                System.out.print("Enter GPA: ");
-                double gpa;
-                try{
-                    gpa = Double.parseDouble(scanner.nextLine());
-                } catch (NumberFormatException e){
-                    System.out.println("Invaid GPA, Please Reenter.");
+                    System.out.print("Enter ID: ");
+                    String id = scanner.nextLine();
+                    System.out.print("Enter Name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter GPA: ");
+                    double gpa;
+                    try{
+                        gpa = Double.parseDouble(scanner.nextLine());
+                    } catch (NumberFormatException e){
+                        System.out.println("Invaid GPA, Please Reenter.");
+                        break;
+                    }
+                    System.out.print("Enter Credits: ");
+                    int credits;
+                    try{
+                        credits = Integer.parseInt(scanner.nextLine());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invaid Credits, Please Reenter.");
+                        break;
+                    }
+
+                    Student s; //Problem
+                    if (choice == 1){
+                        s = new Student(id, name, gpa, credits); //Can't call directly to Undergrad or Grad
+                    } else {
+                        s = new Student(id, name, gpa, credits);
+                    }
+                    manager.addStudent(s);
+                    System.out.println("Student added and is now in Class:  " + s.Predictor());
                     break;
-                }
-                System.out.print("Enter Credits: ");
-                int credits;
-                try{
-                    credits = Integer.parseInt(scanner.nextLine());
-                } catch (NumberFormatException e) {
-                    System.out.println("Invaid Credits, Please Reenter.");
-                    break;
-                }
-                
-                Student s; //Problem
-                if (choice == 1){
-                    s = new Student(id, name, gpa, credits); //Can't call directly to Undergrad or Grad
-                } else {
-                    s = new Student(id, name, gpa, credits);
-                }
-                manager.addStudent(s);
-                System.out.println("Student added and is now in Class:  " + s.Predictor()); 
-                break;
                 case 3:
                     manager.displayAll();
                     break;
                 case 4:
-                    manager.saveToFile("Student.dat");
+                    manager.saveStudent("Student.dat");
                     break;
                 case 5:
-                    manager.loadFromFile("Student.dat");
+                    manager.loadStudentData("Student.dat");
                     break;
                 case 6:
                     running = false;
                     break;
                 default:
                     System.out.println("Invalid Choice");
-                }
             }
+        }
         scanner.close();
         System.out.println("Program Successfully Exited.");
-        }
     }
+}
 
 
 /*
 How arrays, ArrayLists, linked lists support static vs. dynamic datasets in AI workflows.
-Arrays: Arrays are best for static datasets where you know the dataset size when it is being created while also performing 
+Arrays: Arrays are best for static datasets where you know the dataset size when it is being created while also performing
 at a fast pace for static datasets.
 
 ArrayLists: ArrayLists are a good all rounder that can be used for static or dynamic data sets because of their level of efficiency.
-I would say that they would be more useful in a dynamic data set over a static one because they have the 
-ability to add and remove data inside of themselves. 
+I would say that they would be more useful in a dynamic data set over a static one because they have the
+ability to add and remove data inside of themselves.
 
-LinkedLists: Now Linked lists are the best for Dynamic Datasets since they have the 
+LinkedLists: Now Linked lists are the best for Dynamic Datasets since they have the
 ability to have nodes that can be added or removed relatively easy at any point. It does have
-slower random access but it also has faster insert/deletion at the head and tail. In AI it is very 
+slower random access but it also has faster insert/deletion at the head and tail. In AI it is very
 suitible for data streams or systems where items are often removed and replaced.
 
 Overall: They all have their uses but in terms of what is most useful where when it comes to datasets,
 Arrays are best for the static datasets where you know before making it how many belong in the data.
 ArrayLists are a good all rounder that could go in either but don't particularily shine as number one,
-And lastly LinkedLists are the best for more dynamic lists that require moving parts, or frequent changes whether the 
+And lastly LinkedLists are the best for more dynamic lists that require moving parts, or frequent changes whether the
 data is removed or added.
 */
 
 /*
 The difference between rule-based simulation (what you’ve built) and a true learning-based classifier (e.g., kNN or other ML algorithms).
 I have a lot more experience with rules based as you can imagine, but some basic differences I know is
-That they while they are easy to understand and very explainable to other people, rules based simulations lack the ability to 
+That they while they are easy to understand and very explainable to other people, rules based simulations lack the ability to
 adapt and lean unlike Learning based classifiers. Rules based also lacks the ability to improve itself or generalize without direct input from the writer.
 On the other hand Learning-Based Classifiers are a bit more self sufficient and can handle more complex problems.
 But in return they are a lot harder to understand and explain while also using more data and power.
 But once they are running and learning, they will be able to adapt based on previous information it gathererd.
-Both of them have their own uses with Learning-Based seeming to be preferable for more complex projects as it is the Dynamic system compared to 
+Both of them have their own uses with Learning-Based seeming to be preferable for more complex projects as it is the Dynamic system compared to
 rules-based being static. (Wanted to relate it to the above)
 
 */
