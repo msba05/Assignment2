@@ -7,41 +7,7 @@ public class StudentManager
     {
         studentList = new LinkedList<>();
     }
-    public void addStudent(Student stu)
-    {
-        studentList.add(stu); //???
-        saveStudent();
-    }
 
-    public void displayStudent(Student stu)
-    {
-        if(studentList.isEmpty())
-        {
-            System.out.println("No students in this list.");
-        }
-        else {
-            for(Student s : studentList)
-            {
-                System.out.println(s);
-            }
-        }
-    }
-    public Student searchById(String stuID)
-    {
-        for (int i=0; i<studentList.size();i++)
-        {
-            Student s =studentList.get(i);
-            if(s.getStudentID().equals(stuID))
-            {
-                return s;
-            }
-        }
-        return null;
-    }
-    public void displayAll()
-    {
-        //studentList.traverse();
-    }
     public void loadStudentData()
     {
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("student.dat")))
