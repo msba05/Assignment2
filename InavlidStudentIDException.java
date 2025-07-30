@@ -1,6 +1,6 @@
 import java.io.Serializable;
  /*
-     * This program creates an exception for invalid student names
+     * This program creates an exception for invalid student ID
      * Written by Mariam Barry
      * Written on 7/22/25
      */
