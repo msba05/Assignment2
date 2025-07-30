@@ -1,3 +1,8 @@
+/*
+ * This program creates a undergrad subclass
+ * Written by Mariam Barry
+ * Written on 7/22/25
+ */
 public class UnderGraduateStudent extends Student
 {
         private String major="";
@@ -18,9 +23,9 @@ public class UnderGraduateStudent extends Student
         this.major = major;
     }
 
-    @Override
-        public String toString()
-        {
-            return "Undergraduate Student: "+getName() +", ID: "+getStudentID()+", Major: "+getMajor()+", GPA: "+getGpa()+", Credits: "+getCredits();
-        }
+
+    public String toString()
+    {
+        return "Undergraduate Student: "+getName() +", ID: "+getStudentID()+", Major: "+getMajor()+", GPA: "+getGpa()+", Credits: "+getCredits();
+    }
 }
