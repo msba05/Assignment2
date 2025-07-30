@@ -55,17 +55,18 @@ public class Sorter {
 
     private static Node<Student> getMiddle(Node<Student> head) {
         if (head == null) return head;
-        Node<Student> slow = head;
-        Node<Student> fast = head.next;
+            Node<Student> slow = head;
+            Node<Student> fast = head.next;
 
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return slow;
+            while (fast != null && fast.next != null) {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            return slow;
     }
 
-    public static void binarySearch(Student[] array, String name) {
+    public static void binarySearch(Student[] array, String name)
+    {
         int left = 0;
         int right = array.length - 1;
         Arrays.sort(array, (a, b) -> a.getName().compareTo(b.getName()));
@@ -78,12 +79,12 @@ public class Sorter {
                 System.out.println("Found: " + array[mid]);
                 return;
             } else if (cmp < 0) {
-                left = mid + 1;
+                    left = mid + 1;
             } else {
-                right = mid - 1;
+                    right = mid - 1;
             }
         }
-        System.out.println("Student not found.");
+            System.out.println("Student not found.");
     }
 }
 
