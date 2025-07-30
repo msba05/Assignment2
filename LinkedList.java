@@ -1,5 +1,3 @@
-package studentperformancepredictor;
-
 public class LinkedList<T> {
     private Node<T> head;
 
@@ -110,4 +108,3 @@ public class LinkedList<T> {
         return array;
     }
 }
-
