@@ -1,3 +1,8 @@
+/*
+ * This program creates student superclass
+ * Written by Mariam Barry
+ * Written on 7/22/25
+ */
 import java.io.Serial;
 import java.io.Serializable;
 
