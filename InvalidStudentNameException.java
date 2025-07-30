@@ -1,3 +1,8 @@
+/*
+     * This program creates an exception for invalid student names
+     * Written by Mariam Barry
+     * Written on 7/22/25
+     */
 public class InvalidStudentNameException extends Exception
 {
     public InvalidStudentNameException()
