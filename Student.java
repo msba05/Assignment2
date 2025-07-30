@@ -1,7 +1,7 @@
 import java.io.Serial;
 import java.io.Serializable;
 
-public abstract class Student implements Serializable
+public  class Student implements Serializable
 {
    private String name ="";
    private String studentID ="";
@@ -75,5 +75,8 @@ public abstract class Student implements Serializable
    {
        return credits;
    }
-   public abstract String toString();
+   public  String toString()
+   {
+       return "";
+   }
 }
