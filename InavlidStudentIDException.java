@@ -1,4 +1,9 @@
 import java.io.Serializable;
+ /*
+     * This program creates an exception for invalid student names
+     * Written by Mariam Barry
+     * Written on 7/22/25
+     */
 
 public class InvalidStudentIDException extends Exception
 {
