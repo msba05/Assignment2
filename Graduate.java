@@ -1,3 +1,8 @@
+/*
+ * This program a grad subclass
+ * Written by Mariam Barry
+ * Written on 7/22/25
+ */
 public class GraduateStudent extends Student
 {
     private String major="";
