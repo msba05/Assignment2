@@ -1,13 +1,13 @@
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Assignment2 {
+public class Main {
 
     public static void main(String[] args) throws InvalidStudentIDException, InvalidStudentNameException {
         StudentManager manager = new StudentManager(); //Problem
         LinkedList<Student> studentLinkedList = new LinkedList<>();
         Scanner scanner  = new Scanner(System.in);
-        Predictor studentPrediciton = new Predictor();
+        Predictor predictor = new Predictor();
         boolean running = true;
 
         while(running){
@@ -45,7 +45,7 @@ public class Assignment2 {
                     System.out.print("Enter Major: ");
                     major = scanner.nextLine();
                     Student undergrad= new UnderGraduateStudent(name,id, gpa, credits, major);
-                    
+
                     manager.addStudent(undergrad);
                     break;
                 case 2:
@@ -64,7 +64,7 @@ public class Assignment2 {
                     System.out.print("Enter Thesis Topic: ");
                     thesisTopic = scanner.nextLine();
                     Student grad= new GraduateStudent(name,id, gpa, credits, major,thesisTopic);
-                    
+
                     manager.addStudent(grad);
                     break;
                 case 3:
@@ -77,11 +77,12 @@ public class Assignment2 {
                     manager.loadStudentData("Student.dat");
                     break;
                 case 6:
-                    if(manager.isEmpty()){
+                    if(manager.getStudents().isEmpty()){
                         System.out.println("No students available for prediction.");
                     } else {
                         for(Student s : manager.getStudents()){
-                            String result = studentPrediciton.studentPredictor(s);
+                            String result = predictor.studentPredictor(s);
+                            System.out.println(s + " → Prediction: " + result);
                         }
                     }
                     break;
