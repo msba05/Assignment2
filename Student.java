@@ -1,3 +1,9 @@
+/**
+ * Student superclass
+ * @author Mariam Barry4
+ * date 7/23/2025
+ */
+
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -23,7 +29,7 @@ public  class Student implements Serializable
    }
    public void setName(String name) throws InvalidStudentNameException
    {
-       if(name==null)
+       if(name==null || name.trim().isEmpty())
        {
            throw new InvalidStudentNameException("Name cannot be empty.");
        }
