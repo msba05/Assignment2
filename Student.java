@@ -23,7 +23,7 @@ public  class Student implements Serializable
    }
    public void setName(String name) throws InvalidStudentNameException
    {
-       if(name.isEmpty())
+       if(name==null)
        {
            throw new InvalidStudentNameException("Name cannot be empty.");
        }
@@ -43,7 +43,7 @@ public  class Student implements Serializable
    }
    public void setCredits(int credits)
    {
-       if(credits < 0.0)
+       if(credits < 0)
        {
            throw new IllegalArgumentException("Credits must be zero or greater");
        }
