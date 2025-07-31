@@ -1,5 +1,5 @@
 /**
- * This is a Student Manager class that implenest File I/O
+ * This is a Student Manager class that implements File I/O
  * @author Mariam Barry
  */
 
