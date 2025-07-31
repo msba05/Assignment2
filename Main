@@ -3,14 +3,13 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws InvalidStudentIDException, InvalidStudentNameException {
-        StudentManager manager = new StudentManager(); //Problem
-        LinkedList<Student> studentLinkedList = new LinkedList<>();
-        Scanner scanner  = new Scanner(System.in);
+    public static void main(String[] args) {
+        StudentManager manager = new StudentManager();
+        Scanner scanner = new Scanner(System.in);
         Predictor predictor = new Predictor();
         boolean running = true;
 
-        while(running){
+        while (running) {
             System.out.println("\n1. Add Undergraduate Student");
             System.out.println("2. Add Graduate Student");
             System.out.println("3. Display All Stidents");
@@ -21,8 +20,6 @@ public class Main {
             System.out.println("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); //consume the newline
-
-
             String id;
             String name;
             double gpa;
@@ -30,75 +27,82 @@ public class Main {
             String thesisTopic;
             int credits;
 
-            switch(choice){
-                case 1:
-                    System.out.print("Enter ID: ");
-                    id = scanner.nextLine();
-//                        scanner.nextLine();
-                    System.out.print("Enter Name: ");
-                    name = scanner.nextLine();
-                    System.out.print("Enter GPA: ");
-                    gpa = scanner.nextDouble();
-                    System.out.print("Enter Credits: ");
-                    credits = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.print("Enter Major: ");
-                    major = scanner.nextLine();
-                    Student undergrad= new UnderGraduateStudent(name,id, gpa, credits, major);
-
-                    manager.addStudent(undergrad);
-                    break;
-                case 2:
-                    System.out.print("Enter ID: ");
-                    id = scanner.nextLine();
-                    System.out.print("Enter Name: ");
-                    name = scanner.nextLine();
-                    System.out.print("Enter GPA: ");
-                    gpa = scanner.nextDouble();
-                    scanner.nextLine();
-                    System.out.print("Enter Credits: ");
-                    credits = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.print("Enter Major: ");
-                    major = scanner.nextLine();
-                    System.out.print("Enter Thesis Topic: ");
-                    thesisTopic = scanner.nextLine();
-                    Student grad= new GraduateStudent(name,id, gpa, credits, major,thesisTopic);
-
-                    manager.addStudent(grad);
-                    break;
-                case 3:
-                    manager.displayAll();
-                    break;
-                case 4:
-                    manager.saveStudent("Student.dat");
-                    break;
-                case 5:
-                    manager.loadStudentData("Student.dat");
-                    break;
-                case 6:
-                    if(manager.getStudents().isEmpty()){
-                        System.out.println("No students available for prediction.");
-                    } else {
-                        for(Student s : manager.getStudents()){
-                            String result = predictor.studentPredictor(s);
-                            System.out.println(s + " → Prediction: " + result);
+                switch (choice) {
+                    case 1:
+                        try {
+                            System.out.print("Enter ID: ");
+                            id = scanner.nextLine();
+                            System.out.print("Enter Name: ");
+                            name = scanner.nextLine();
+                            System.out.print("Enter GPA: ");
+                            gpa = scanner.nextDouble();
+                            System.out.print("Enter Credits: ");
+                            credits = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.print("Enter Major: ");
+                            major = scanner.nextLine();
+                            Student undergrad = new UnderGraduateStudent(name, id, gpa, credits, major);
+                            manager.addStudent(undergrad);
+                        } catch (InvalidStudentNameException | InvalidStudentIDException e)
+                        {
+                            System.out.println("Error Adding Student: "+e.getMessage());
                         }
-                    }
-                    break;
-                case 7:
-                    running = false;
-                    break;
-                default:
-                    System.out.println("Invalid Choice");
-            }
+                        break;
+                    case 2:
+                        try {
+                            System.out.print("Enter ID: ");
+                            id = scanner.nextLine();
+                            System.out.print("Enter Name: ");
+                            name = scanner.nextLine();
+                            System.out.print("Enter GPA: ");
+                            gpa = scanner.nextDouble();
+                            scanner.nextLine();
+                            System.out.print("Enter Credits: ");
+                            credits = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.print("Enter Major: ");
+                            major = scanner.nextLine();
+                            System.out.print("Enter Thesis Topic: ");
+                            thesisTopic = scanner.nextLine();
+                            Student grad = new GraduateStudent(name, id, gpa, credits, major, thesisTopic);
+                            manager.addStudent(grad);
+                        } catch (InvalidStudentNameException | InvalidStudentIDException e)
+                        {
+                            System.out.println("Error Adding Student: "+e.getMessage());
+                        }
+                        break;
+                    case 3:
+                        manager.displayAll();
+                        break;
+                    case 4:
+                        manager.saveStudent("Student.dat");
+                        break;
+                    case 5:
+                        manager.loadStudentData("Student.dat");
+                        break;
+                    case 6:
+                        if (manager.getStudents().isEmpty()) {
+                            System.out.println("No students available for prediction.");
+                        } else {
+                            for (Student s : manager.getStudents()) {
+                                String result = predictor.studentPredictor(s);
+                                System.out.println(s + " → Prediction: " + result);
+                            }
+                        }
+                        break;
+                    case 7:
+                        running = false;
+                        break;
+                    default:
+                        System.out.println("Invalid Choice");
+                }
+            scanner.close();
+            System.out.println("Program Successfully Exited.");
         }
-        scanner.close();
-        System.out.println("Program Successfully Exited.");
     }
 }
 
-READ ME: (Pt.5)
+
 /*
 How arrays, ArrayLists, linked lists support static vs. dynamic datasets in AI workflows.
 Arrays: Arrays are best for static datasets where you know the dataset size when it is being created while also performing
