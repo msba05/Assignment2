@@ -1,4 +1,5 @@
-public class LinkedList<T> {
+import java.io.Serializable;
+public class LinkedList<T> implements Serializable {
     private Node<T> head;
 
     public void insertAtHead(T data) {
@@ -50,7 +51,14 @@ public class LinkedList<T> {
             current.next = current.next.next;
         }
     }
-
+    public void setHead(Node<T> head)
+    {
+        this.head = head;
+    }
+    public boolean isEmpty()
+    {
+        return head == null;
+    }
     public void removeAtIndex(int index) {
         if (head == null) return;
         if (index == 0) {
