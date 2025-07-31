@@ -1,8 +1,3 @@
-/*
- * This program a grad subclass
- * Written by Mariam Barry
- * Written on 7/22/25
- */
 public class GraduateStudent extends Student
 {
     private String major="";
@@ -23,10 +18,10 @@ public class GraduateStudent extends Student
         return major;
     }
 
-    public void setMajor(String major)
-    {
-        this.major = major;
-    }
+//    public void setMajor(String major)
+//    {
+//        this.major = major;
+//    }
     public String getThesisTopic() {
         return thesisTopic;
     }
@@ -36,7 +31,7 @@ public class GraduateStudent extends Student
     }
     public String toString()
     {
-        return "Graduate Student: "+getName() +", ID: "+getStudentID()+", Major: "+getMajor()+", GPA: "+getGpa()+", Credits: "+getCredits()+", Thesis Topic: "+getThesisTopic();
+        return "[Graduate Student: "+getName() +", ID: "+getStudentID()+", Major: "+getMajor()+", GPA: "+getGpa()+", Credits: "+getCredits()+", Thesis Topic: "+getThesisTopic()+"]";
     }
 }
 
