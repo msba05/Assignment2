@@ -1,10 +1,10 @@
 /**
  * This is a Student Manager class that implements File I/O
  * @author Mariam Barry
+ * date 7/25/2025
  */
 
 import java.io.*;
-import java.util.LinkedList;
 public class StudentManager
 {
     private LinkedList<Student> studentList;
@@ -44,22 +44,16 @@ public class StudentManager
             System.out.println("Error saving student data:" +e.getMessage());
         }
     }
-    public LinkedList<Student> getStudentList()
-    {
-        return studentList;
-    }
+
     public LinkedList<Student> getStudents() {
         return studentList;
     }
     public void addStudent(Student student)
     {
-        studentList.add(student);
+        studentList.insertAtTail(student);
     }
     public void displayAll()
     {
-        for (Student s : studentList)
-        {
-            System.out.println(s);
-        }
+        studentList.display();
     }
 }
