@@ -1,0 +1,104 @@
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+1
+Enter ID: S225730
+Enter Name: Brayden Stewart
+Enter GPA: 3.2
+Enter Credits: 56
+Enter Major: Computer Science
+
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+2
+Enter ID: S456789
+Enter Name: Mariam Barry
+Enter GPA: 2.5
+Enter Credits: 21
+Enter Major: Art
+Enter Thesis Topic: History of art
+
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+1
+Enter ID: S346788
+Enter Name: Trevor Sanderson
+Enter GPA: 4.0
+Enter Credits: 12
+Enter Major: Rocks
+
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+3
+[Undergraduate Student: Brayden Stewart, ID: S225730, Major: Computer Science, GPA: 3.2, Credits: 56]
+[Graduate Student: Mariam Barry, ID: S456789, Major: Art, GPA: 2.5, Credits: 21, Thesis Topic: History of art]
+[Undergraduate Student: Trevor Sanderson, ID: S346788, Major: Rocks, GPA: 4.0, Credits: 12]
+
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+4
+Student data saved to Student.dat successfully.
+
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+5
+Student data loaded successfully.
+
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+6
+[Undergraduate Student: Brayden Stewart, ID: S225730, Major: Computer Science, GPA: 3.2, Credits: 56] → Prediction: On Track
+[Graduate Student: Mariam Barry, ID: S456789, Major: Art, GPA: 2.5, Credits: 21, Thesis Topic: History of art] → Prediction: On Track
+[Undergraduate Student: Trevor Sanderson, ID: S346788, Major: Rocks, GPA: 4.0, Credits: 12] → Prediction: On Track
+
+1. Add Undergraduate Student
+2. Add Graduate Student
+3. Display All Stidents
+4. Save to FIle
+5. Load from File
+6. Predict Student Performance
+7. Exit
+Choose an option: 
+7
+Program Successfully Exited.
