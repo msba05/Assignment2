@@ -1,12 +1,13 @@
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Main {
+public class Assignment2 {
 
     public static void main(String[] args) throws InvalidStudentIDException, InvalidStudentNameException {
         StudentManager manager = new StudentManager(); //Problem
         LinkedList<Student> studentLinkedList = new LinkedList<>();
         Scanner scanner  = new Scanner(System.in);
+        Predictor studentPrediciton = new Predictor();
         boolean running = true;
 
         while(running){
@@ -15,7 +16,8 @@ public class Main {
             System.out.println("3. Display All Stidents");
             System.out.println("4. Save to FIle");
             System.out.println("5. Load from File");
-            System.out.println("6. Exit");
+            System.out.println("6. Predict Student Performance");
+            System.out.println("7. Exit");
             System.out.println("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); //consume the newline
@@ -30,19 +32,20 @@ public class Main {
 
             switch(choice){
                 case 1:
-                        System.out.print("Enter ID: ");
-                        id = scanner.nextLine();
+                    System.out.print("Enter ID: ");
+                    id = scanner.nextLine();
 //                        scanner.nextLine();
-                        System.out.print("Enter Name: ");
-                        name = scanner.nextLine();
-                        System.out.print("Enter GPA: ");
-                        gpa = scanner.nextDouble();
-                        System.out.print("Enter Credits: ");
-                        credits = scanner.nextInt();
+                    System.out.print("Enter Name: ");
+                    name = scanner.nextLine();
+                    System.out.print("Enter GPA: ");
+                    gpa = scanner.nextDouble();
+                    System.out.print("Enter Credits: ");
+                    credits = scanner.nextInt();
                     scanner.nextLine();
                     System.out.print("Enter Major: ");
                     major = scanner.nextLine();
                     Student undergrad= new UnderGraduateStudent(name,id, gpa, credits, major);
+                    
                     manager.addStudent(undergrad);
                     break;
                 case 2:
@@ -61,6 +64,7 @@ public class Main {
                     System.out.print("Enter Thesis Topic: ");
                     thesisTopic = scanner.nextLine();
                     Student grad= new GraduateStudent(name,id, gpa, credits, major,thesisTopic);
+                    
                     manager.addStudent(grad);
                     break;
                 case 3:
@@ -73,6 +77,15 @@ public class Main {
                     manager.loadStudentData("Student.dat");
                     break;
                 case 6:
+                    if(manager.isEmpty()){
+                        System.out.println("No students available for prediction.");
+                    } else {
+                        for(Student s : manager.getStudents()){
+                            String result = studentPrediciton.studentPredictor(s);
+                        }
+                    }
+                    break;
+                case 7:
                     running = false;
                     break;
                 default:
@@ -116,5 +129,4 @@ But in return they are a lot harder to understand and explain while also using m
 But once they are running and learning, they will be able to adapt based on previous information it gathererd.
 Both of them have their own uses with Learning-Based seeming to be preferable for more complex projects as it is the Dynamic system compared to
 rules-based being static. (Wanted to relate it to the above)
-
 */
