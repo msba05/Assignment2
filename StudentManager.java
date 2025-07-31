@@ -1,5 +1,5 @@
 /**
- * This is a Student Manager class that implements File I/O
+ * This is a Student Manager class that implenest File I/O
  * @author Mariam Barry
  */
 
@@ -14,7 +14,7 @@ public class StudentManager
         studentList = new LinkedList<>();
     }
 
-    public void loadStudentData(String s)
+    public void loadStudentData(String fileName)
     {
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("student.dat")))
         {
@@ -32,12 +32,12 @@ public class StudentManager
             studentList = new LinkedList<>();
         }
     }
-    public void saveStudent(String s)
+    public void saveStudent(String fileName)
     {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("student.dat")))
         {
             oos.writeObject(studentList);
-            System.out.println("Student data saved successfully.");
+            System.out.println("Student data saved to " + fileName +" successfully.");
         }
         catch(IOException e)
         {
@@ -46,6 +46,9 @@ public class StudentManager
     }
     public LinkedList<Student> getStudentList()
     {
+        return studentList;
+    }
+    public LinkedList<Student> getStudents() {
         return studentList;
     }
     public void addStudent(Student student)
