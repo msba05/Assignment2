@@ -1,8 +1,3 @@
-/*
- * This program creates student superclass
- * Written by Mariam Barry
- * Written on 7/22/25
- */
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -82,6 +77,6 @@ public  class Student implements Serializable
    }
    public  String toString()
    {
-       return "";
+       return "[Student: "+getName() +", ID: "+getStudentID()+", GPA: "+getGpa()+", Credits: "+getCredits()+"]";
    }
 }
