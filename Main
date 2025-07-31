@@ -98,7 +98,7 @@ public class Main {
     }
 }
 
-
+READ ME: (Pt.5)
 /*
 How arrays, ArrayLists, linked lists support static vs. dynamic datasets in AI workflows.
 Arrays: Arrays are best for static datasets where you know the dataset size when it is being created while also performing
@@ -130,4 +130,37 @@ But in return they are a lot harder to understand and explain while also using m
 But once they are running and learning, they will be able to adapt based on previous information it gathererd.
 Both of them have their own uses with Learning-Based seeming to be preferable for more complex projects as it is the Dynamic system compared to
 rules-based being static. (Wanted to relate it to the above)
+*/
+/*-------------------------------------------------------------------------------*/
+READ ME: (Deliverables)
+/*
+Our generic linked list design:
+Our design first uses nodes as the building blocks of our linked list which we use to store data 
+and the link to the next node in the list. This allows us to create a node at the head of the 
+list and then work our way down the chain by creating a node at the tail of the list each time
+we want to create a new one. This also allows us to search through the list very easily since we
+can check each node until we find what we are looking for. We can also convert our linked list into 
+an array very easily for whenever we want to do a binary search.
+
+Our sorting/searching algorithms:
+For our sorter we used selection sort which goes through the list and finds our smallest 
+GPA and then swaps it with the front of the list and repeats this until the end. This sorting 
+algorithm has a O(n^2) time complexity since for each student, it compares that student to all the
+other ones in the list. We also used a binary search in our program which searches through the array by 
+cutting it in half repeatedly. The way this works is that it first sorts the array by name and then it starts 
+in the middle and if that is not a match than it checks if it should search ahead or behind itself in the
+chain and it repeats this until it finds the correct name. This could have a time complexity of O(1) if 
+it finds it in the middle or a time complexity of O(log n) if it does not find it right away because 
+it splits in half each time.
+
+Why did we use rule based classification:
+In our code we used rule based classification to classify how well each student was doing
+based on their GPA. This was done using simple if-else statements to check each GPA in our list. 
+We used this method because it simulates the way that real AI models classify data in a simple and predictable way.
+
+How does this build on assignment 1:
+This builds on our genre tagging prototype from assignment one by adding in the use of
+a linked list which allows us to tag each student with multiple sets of data like their 
+GPA and IDs and anything like that in order to expand our codes usage and simulate the way a real 
+AI would classify all of our data.
 */
