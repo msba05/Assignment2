@@ -1,13 +1,13 @@
 public class Predictor
 {
-    public static String Predictor(Student s)
+    public void studentPredictor(Student s)
     {
         if (s.getGpa() >= 3.5 && s.getCredits() >= 30){
-            return "Honor Roll";
+            System.out.print("Honor Roll");
         }
         else if (s.getGpa()< 2.0){
-            return "High Risk";
+            System.out.print("High Risk");
         }
-        else return " on Track";
+        else System.out.print("On Track");
     }
 }
