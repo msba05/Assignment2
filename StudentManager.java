@@ -1,5 +1,5 @@
 /**
- * This is a Student Manager class that implenest File I/O
+ * This is a Student Manager class that implements File I/O
  * @author Mariam Barry
  */
 
@@ -14,15 +14,16 @@ public class StudentManager
         studentList = new LinkedList<>();
     }
 
-    public void loadStudentData()
+    public void loadStudentData(String s)
     {
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("student.dat")))
         {
            studentList = (LinkedList<Student>) ois.readObject();
+            System.out.println("Student data loaded successfully.");
         }
         catch(FileNotFoundException e)
         {
-            System.out.println("No data found, begininng with a blank student list.");
+            System.out.println("No data found, beginning with a blank student list.");
             studentList = new LinkedList<>();
         }
         catch(IOException | ClassNotFoundException e)
@@ -31,7 +32,7 @@ public class StudentManager
             studentList = new LinkedList<>();
         }
     }
-    public void saveStudent()
+    public void saveStudent(String s)
     {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("student.dat")))
         {
