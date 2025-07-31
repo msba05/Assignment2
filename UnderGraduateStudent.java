@@ -1,5 +1,5 @@
 /*
- * This program creates a undergrad subclass
+ * This program a undergrad subclass
  * Written by Mariam Barry
  * Written on 7/22/25
  */
@@ -26,6 +26,6 @@ public class UnderGraduateStudent extends Student
 
     public String toString()
     {
-        return "Undergraduate Student: "+getName() +", ID: "+getStudentID()+", Major: "+getMajor()+", GPA: "+getGpa()+", Credits: "+getCredits();
+        return "[Undergraduate Student: "+getName() +", ID: "+getStudentID()+", Major: "+getMajor()+", GPA: "+getGpa()+", Credits: "+getCredits()+"]";
     }
 }
