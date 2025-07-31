@@ -22,21 +22,10 @@ public  class Student implements Serializable
    }
     public Student (String name, String ID, double gpa, int credits) throws InvalidStudentNameException, InvalidStudentIDException
    {
-       setName(name);                 //this calls the setName method to do input validation and when super is called in the subclasses
-       setStudentID(ID);//this will call teh setStudentID method and when super is calls in subclasses allow for the method to work there as well
-       this.gpa=gpa;
-       this.credits=credits;
-   }
-   public void setName(String name) throws InvalidStudentNameException
-   {
        if(name==null || name.trim().isEmpty())
        {
            throw new InvalidStudentNameException("Name cannot be empty.");
        }
-       this.name =name;
-   }
-   public void setStudentID(String ID) throws InvalidStudentIDException
-   {
        if(ID.isEmpty())
        {
            throw new InvalidStudentIDException("Student ID cannot be empty.");
@@ -45,6 +34,17 @@ public  class Student implements Serializable
        {
            throw new InvalidStudentIDException("ID must include only one capital letter and at least one numeric digit.");
        }
+       this.studentID=ID;
+       this.name=name;                 
+       this.gpa=gpa;
+       this.credits=credits;
+   }
+   public void setName(String name)
+   {
+       this.name =name;
+   }
+   public void setStudentID(String ID) 
+   {
        this.studentID=ID;
    }
    public void setCredits(int credits)
